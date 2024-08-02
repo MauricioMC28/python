@@ -1,7 +1,9 @@
+!/opt/wmt/python-env/bin/python
 import sys
 import argparse
 #import serial
 import re
+import subprocess
 
 def extract_usb_numbers(file_path):
     with open(file_path, 'r') as file:
@@ -9,12 +11,13 @@ def extract_usb_numbers(file_path):
 
     # Regex para encontrar la línea que contiene "transport.deviceid usb" y extraer el número
     pattern = re.compile(r'transport\.deviceid usb:(\d+-\d+\.\d+)')
+    usb_numbers = []
 
     for line in lines:
         match = pattern.search(line)
         if match:
             usb_number = match.group(1)
-            print(usb_number)
+            usb_numbers.append(usb_number)
 
     return usb_numbers
 
