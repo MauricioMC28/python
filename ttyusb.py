@@ -1,4 +1,4 @@
-!/opt/wmt/python-env/bin/python
+#!/opt/wmt/python-env/bin/python
 import sys
 import argparse
 #import serial
